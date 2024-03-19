@@ -1,1 +1,24 @@
-spring.application.name=Pharmacy
+spring:
+  profiles:
+    active: local # default
+    group:
+      local:
+        - common
+      prod:
+        - common
+---
+spring:
+  config:
+    activate:
+      on-profile: common # local과 dev에서 공통으로 사용할 설정 값
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
