@@ -12,12 +12,34 @@ spring:
     activate:
       on-profile: common # local과 dev에서 공통으로 사용할 설정 값
 
+kakao:
+  rest:
+    api:
+      key: ${KAKAO_REST_API_KEY}
+
 ---
+
 spring:
   config:
     activate:
       on-profile: local
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/pharmacy-recommendation
+    username: ${SPRING_DATASOURCE_USERNAME} # 로컬 개발 시에는 .env에서 참조 안되기 때문에 따로 환경변수 설정해야함
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+
 ---
+
 spring:
   config:
     activate:
