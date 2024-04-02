@@ -1,4 +1,4 @@
-package dev.lecture.pharmacy.api.dto;
+package dev.lecture.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MetaDto {
 
-    @JsonProperty("total_cnt")
+    @JsonProperty("total_count")
     private Integer totalCount;
 
 }
