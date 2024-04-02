@@ -1,4 +1,4 @@
-package dev.lecture.pharmacy.api.dto;
+package dev.lecture.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package dev.lecture.pharmacy.api.service;
+package dev.lecture.api.service;
 
-import dev.lecture.pharmacy.api.dto.KakaoApiResponseDto;
+import dev.lecture.api.dto.KakaoApiResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
