@@ -24,9 +24,8 @@ public class DirectionService {
 
     private final PharmacySearchService pharmacySearchService;
     public List<Direction> buildDirectionList(DocumentDto documentDto) {
-        if (Objects.isNull(documentDto)) return Collections.emptyList();
+        if(Objects.isNull(documentDto)) return Collections.emptyList();
 
-        // 약국 데이터 조회
         return pharmacySearchService.searchPharmacyDtoList()
                 .stream().map(pharmacyDto ->
                         Direction.builder()
@@ -37,16 +36,14 @@ public class DirectionService {
                                 .targetAddress(pharmacyDto.getPharmacyAddress())
                                 .targetLatitude(pharmacyDto.getLatitude())
                                 .targetLongitude(pharmacyDto.getLongitude())
-                                .distance(calculateDistance(documentDto.getLatitude(), documentDto.getLongitude(), pharmacyDto.getLatitude(), pharmacyDto.getLongitude()))
+                                .distance(
+                                        calculateDistance(documentDto.getLatitude(), documentDto.getLongitude(),
+                                                pharmacyDto.getLatitude(), pharmacyDto.getLongitude()))
                                 .build())
                 .filter(direction -> direction.getDistance() <= RADIUS_KM)
                 .sorted(Comparator.comparing(Direction::getDistance))
                 .limit(MAX_SEARCH_COUNT)
                 .collect(Collectors.toList());
-
-        // 거리계산 알고리즘 이용하여, 고객과 약국 사이의 거리를 계산하고 sort
-
-
     }
 
     // Haversine formula
