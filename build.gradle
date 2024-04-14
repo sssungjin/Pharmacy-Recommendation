@@ -43,7 +43,15 @@ dependencies {
     testImplementation 'org.testcontainers:spock:1.17.1'
     testImplementation 'org.testcontainers:mariadb:1.17.1'
 
+    // csv 파일
     implementation 'com.opencsv:opencsv:4.3'
+
+    //Spring Retry
+    implementation 'org.springframework.retry:spring-retry'
+
+    // mockWebServer
+    testImplementation('com.squareup.okhttp3:okhttp:4.10.0')
+    testImplementation('com.squareup.okhttp3:mockwebserver:4.10.0')
 }
 
 tasks.named('test') {
