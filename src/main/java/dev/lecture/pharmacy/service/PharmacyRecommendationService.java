@@ -46,8 +46,8 @@ public class PharmacyRecommendationService {
 
     private OutputDto converToOutputDto(Direction direction) {
         return OutputDto.builder()
-                .pharmacyAddress(direction.getTargetAddress())
                 .pharmacyName(direction.getTargetPharmacyName())
+                .pharmacyAddress(direction.getTargetAddress())
                 .directionUrl("todo")
                 .roadViewUrl("todo")
                 .distance(String.format("%.2f km", direction.getDistance()))

@@ -21,11 +21,12 @@ public class FormController {
     }
 
     @PostMapping("/search")
-    public ModelAndView postDirection(@ModelAttribute InputDto inputDto) {
+    public ModelAndView postDirection(@ModelAttribute InputDto inputDto)  {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("output");
-        modelAndView.addObject("outputFormList"
-        , pharmacyRecommendationService.recommendPharmacyList(inputDto.getAddress()));
+        modelAndView.addObject("outputFormList",
+                pharmacyRecommendationService.recommendPharmacyList(inputDto.getAddress()));
 
         return modelAndView;
     }
