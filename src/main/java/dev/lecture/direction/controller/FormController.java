@@ -17,6 +17,8 @@ public class FormController {
 
     @GetMapping("/")
     public String main() {
+
+
         return "main";
     }
 
